@@ -100,6 +100,21 @@ CREATE TABLE `pago` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `idioma`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `idioma` (
+  `idIdioma` int(11) NOT NULL AUTO_INCREMENT,
+  `idioma` varchar(60) NOT NULL,
+  `status` boolean NOT NULL DEFAULT 1,
+  PRIMARY KEY (`idIdioma`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
 -- Table structure for table `pelicula`
 --
 
@@ -107,11 +122,28 @@ CREATE TABLE `pago` (
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pelicula` (
   `idInventario` int(11) NOT NULL AUTO_INCREMENT,
-  `idioma` varchar(60) DEFAULT NULL,
-  `subtitulos` varchar(200) DEFAULT NULL,
+  `idIdioma` int(11) NOT NULL,
   `formato` varchar(150) DEFAULT NULL,
   `director` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`idInventario`)
+  `status` boolean NOT NULL DEFAULT 1,
+  PRIMARY KEY (`idInventario`),
+  FOREIGN KEY (`idIdioma`) REFERENCES `idioma`( `idIdioma` )
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `pelicula_subtitulo`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pelicula_subtitulo` (
+  `idIdioma` int(11) NOT NULL,
+  `idPelicula` int(11) NOT NULL,
+  `status` boolean NOT NULL DEFAULT 1,
+  PRIMARY KEY (`idIdioma`,`idPelicula` ),
+  FOREIGN KEY (`idIdioma`) REFERENCES `idioma`( `idIdioma` ),
+  FOREIGN KEY (`idPelicula`) REFERENCES `pelicula`( `idInventario` )
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
