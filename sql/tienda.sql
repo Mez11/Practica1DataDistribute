@@ -23,7 +23,6 @@ DROP SCHEMA IF EXISTS `tienda`;
 CREATE DATABASE `tienda`;
 USE `tienda`;
 
-DROP TABLE IF EXISTS `compradetalle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `compradetalle` (
@@ -43,7 +42,6 @@ CREATE TABLE `compradetalle` (
 -- Table structure for table `disco`
 --
 
-DROP TABLE IF EXISTS `disco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `disco` (
@@ -59,7 +57,6 @@ CREATE TABLE `disco` (
 -- Table structure for table `imagen`
 --
 
-DROP TABLE IF EXISTS `imagen`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `imagen` (
@@ -73,7 +70,6 @@ CREATE TABLE `imagen` (
 -- Table structure for table `inventario`
 --
 
-DROP TABLE IF EXISTS `inventario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `inventario` (
@@ -94,7 +90,6 @@ CREATE TABLE `inventario` (
 -- Table structure for table `pago`
 --
 
-DROP TABLE IF EXISTS `pago`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pago` (
@@ -108,7 +103,6 @@ CREATE TABLE `pago` (
 -- Table structure for table `pelicula`
 --
 
-DROP TABLE IF EXISTS `pelicula`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pelicula` (
@@ -125,7 +119,6 @@ CREATE TABLE `pelicula` (
 -- Table structure for table `tarjeta`
 --
 
-DROP TABLE IF EXISTS `tarjeta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tarjeta` (
@@ -142,7 +135,6 @@ CREATE TABLE `tarjeta` (
 -- Table structure for table `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
@@ -164,7 +156,6 @@ CREATE TABLE `usuario` (
 -- Table structure for table `vendedor`
 --
 
-DROP TABLE IF EXISTS `vendedor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vendedor` (
@@ -183,7 +174,6 @@ CREATE TABLE `vendedor` (
 -- Table structure for table `venta`
 --
 
-DROP TABLE IF EXISTS `venta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `venta` (
