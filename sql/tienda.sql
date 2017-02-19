@@ -41,15 +41,15 @@ CREATE TABLE `imagen` (
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
   `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(20) DEFAULT NULL,
+  `nombre` varchar(20) NOT NULL,
   `apellidoP` varchar(20) DEFAULT NULL,
   `apellidoM` varchar(20) DEFAULT NULL,
   `fech_na` date DEFAULT NULL,
   `correo` varchar(150) DEFAULT NULL,
   `sexo` varchar(2) DEFAULT NULL,
   `telefono` varchar(15) DEFAULT NULL,
-  `tipo` varchar(10) DEFAULT NULL,
-  `password` varchar(60) DEFAULT NULL,
+  `tipo` varchar(10) NOT NULL,
+  `password` varchar(60) NOT NULL,
   PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -64,12 +64,12 @@ CREATE TABLE `usuario` (
 CREATE TABLE `inventario` (
   `idInventario` int(11) NOT NULL AUTO_INCREMENT,
   `idImagen` int(11) NOT NULL,
-  `nombre` varchar(250) DEFAULT NULL,
+  `nombre` varchar(250) NOT NULL,
   `categoria` varchar(200) DEFAULT NULL,
   `anio` varchar(15) DEFAULT NULL,
   `numPiezas` int(11) DEFAULT NULL,
-  `precioCompra` decimal(10,0) DEFAULT NULL,
-  `precioVenta` decimal(10,0) DEFAULT NULL,
+  `precioCompra` decimal(10,2) DEFAULT NULL,
+  `precioVenta` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`idInventario`),
   KEY `idImagen` (`idImagen`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -97,9 +97,9 @@ CREATE TABLE `disco` (
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tarjeta` (
   `idTarjeta` int(11) NOT NULL AUTO_INCREMENT,
-  `numero` varchar(50) DEFAULT NULL,
-  `tipo` varchar(30) DEFAULT NULL,
   `idUsuario` int(11) NOT NULL,
+  `numero` varchar(50) NOT NULL,
+  `tipo` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`idTarjeta`),
   KEY `idUsuario` (`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -113,7 +113,7 @@ CREATE TABLE `tarjeta` (
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pago` (
   `idPago` int(11) NOT NULL AUTO_INCREMENT,
-  `pago` decimal(10,0) DEFAULT NULL,
+  `pago` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`idPago`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -126,11 +126,11 @@ CREATE TABLE `pago` (
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `venta` (
   `idVenta` int(11) NOT NULL AUTO_INCREMENT,
-  `idUsuario` int(11) NOT NULL,
-  `fecha` date DEFAULT NULL,
-  `total` decimal(10,0) DEFAULT NULL,
   `idPago` int(11) NOT NULL,
   `idTarjeta` int(11) DEFAULT NULL,
+  `idUsuario` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `total` decimal(10,4) NOT NULL,
   PRIMARY KEY (`idVenta`),
   KEY `idUsuario` (`idUsuario`),
   KEY `idPago` (`idPago`),
@@ -151,8 +151,8 @@ CREATE TABLE `compradetalle` (
   `idCompraDetalle` int(11) NOT NULL AUTO_INCREMENT,
   `idInventario` int(11) NOT NULL,
   `idVenta` int(11) NOT NULL,
-  `cantidad` int(11) DEFAULT NULL,
-  `subtotal` decimal(10,0) DEFAULT NULL,
+  `cantidad` int(11) NOT NULL,
+  `subtotal` decimal(10,4) NOT NULL,
   PRIMARY KEY (`idCompraDetalle`),
   KEY `idInventario` (`idInventario`),
   KEY `idVenta` (`idVenta`)
@@ -221,8 +221,8 @@ CREATE TABLE `vendedor` (
   `hora_entrada` time DEFAULT NULL,
   `hora_comida` time DEFAULT NULL,
   `hora_salida` time DEFAULT NULL,
-  `valComision` decimal(10,0) DEFAULT NULL,
-  `salarioBase` decimal(10,0) DEFAULT NULL,
+  `valComision` decimal(10,2) DEFAULT NULL,
+  `salarioBase` decimal(10,2) DEFAULT NULL,
   `ventas` int(11) DEFAULT NULL,
   PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
