@@ -56,6 +56,19 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `inventario`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categoria` (
+  `idCategoria` int(11) NOT NULL AUTO_INCREMENT,
+  `categoria` varchar(200) DEFAULT NULL,
+  `estatus` boolean NOT NULL DEFAULT 1,
+  PRIMARY KEY (`idCategoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `inventario`
@@ -66,15 +79,16 @@ CREATE TABLE `usuario` (
 CREATE TABLE `inventario` (
   `idInventario` int(11) NOT NULL AUTO_INCREMENT,
   `idImagen` int(11) NOT NULL,
+  `idCategoria` int(11) NOT NULL,
   `nombre` varchar(250) NOT NULL,
-  `categoria` varchar(200) DEFAULT NULL,
   `anio` varchar(15) DEFAULT NULL,
   `numPiezas` int(11) DEFAULT NULL,
   `precioCompra` decimal(10,2) DEFAULT NULL,
   `precioVenta` decimal(10,2) DEFAULT NULL,
   `estatus` boolean NOT NULL DEFAULT 1,
   PRIMARY KEY (`idInventario`),
-  FOREIGN KEY (`idImagen`) REFERENCES `imagen`(`idImagen`)
+  FOREIGN KEY (`idImagen`) REFERENCES `imagen`(`idImagen`),
+  FOREIGN KEY (`idCategoria`) REFERENCES `categoria`(`idCategoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
