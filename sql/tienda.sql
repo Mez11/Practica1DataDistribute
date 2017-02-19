@@ -19,7 +19,7 @@
 -- Table structure for table `compradetalle`
 --
 
-DROP SCHEMA IF EXISTS `tienda`;
+DROP DATABASE IF EXISTS `tienda`;
 CREATE DATABASE `tienda`;
 USE `tienda`;
 
