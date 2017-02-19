@@ -71,7 +71,7 @@ CREATE TABLE `inventario` (
   `precioCompra` decimal(10,2) DEFAULT NULL,
   `precioVenta` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`idInventario`),
-  FOREIGN KEY `idImagen` (`idImagen`)
+  FOREIGN KEY (`idImagen`) REFERENCES `imagen`(`idImagen`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -102,7 +102,7 @@ CREATE TABLE `tarjeta` (
   `numero` varchar(50) NOT NULL,
   `tipo` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`idTarjeta`),
-  FOREIGN KEY `idUsuario` (`idUsuario`)
+  FOREIGN KEY (`idUsuario`)  REFERENCES `usuario`(`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -133,9 +133,9 @@ CREATE TABLE `venta` (
   `fecha` date NOT NULL,
   `total` decimal(10,4) NOT NULL,
   PRIMARY KEY (`idVenta`),
-  FOREIGN KEY `idUsuario` (`idUsuario`),
-  FOREIGN KEY `idPago` (`idPago`),
-  FOREIGN KEY `idTarjeta` (`idTarjeta`)
+  FOREIGN KEY (`idUsuario`) REFERENCES `usuario`(`idUsuario`),
+  FOREIGN KEY (`idPago`) REFERENCES `pago`(`idPago`),
+  FOREIGN KEY (`idTarjeta`) REFERENCES `tarjeta`(`idTarjeta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -155,8 +155,8 @@ CREATE TABLE `compradetalle` (
   `cantidad` int(11) NOT NULL,
   `subtotal` decimal(10,4) NOT NULL,
   PRIMARY KEY (`idCompraDetalle`),
-  FOREIGN KEY `idInventario` (`idInventario`),
-  FOREIGN KEY `idVenta` (`idVenta`)
+  FOREIGN KEY (`idInventario`) REFERENCES `inventario` (`idInventario`),
+  FOREIGN KEY (`idVenta`) REFERENCES `venta` (`idVenta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
