@@ -38,14 +38,6 @@ CREATE TABLE `compradetalle` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `compradetalle`
---
-
-LOCK TABLES `compradetalle` WRITE;
-/*!40000 ALTER TABLE `compradetalle` DISABLE KEYS */;
-/*!40000 ALTER TABLE `compradetalle` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `disco`
@@ -62,14 +54,6 @@ CREATE TABLE `disco` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `disco`
---
-
-LOCK TABLES `disco` WRITE;
-/*!40000 ALTER TABLE `disco` DISABLE KEYS */;
-/*!40000 ALTER TABLE `disco` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `imagen`
@@ -84,15 +68,6 @@ CREATE TABLE `imagen` (
   PRIMARY KEY (`idImagen`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `imagen`
---
-
-LOCK TABLES `imagen` WRITE;
-/*!40000 ALTER TABLE `imagen` DISABLE KEYS */;
-/*!40000 ALTER TABLE `imagen` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `inventario`
@@ -116,15 +91,6 @@ CREATE TABLE `inventario` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `inventario`
---
-
-LOCK TABLES `inventario` WRITE;
-/*!40000 ALTER TABLE `inventario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `inventario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `pago`
 --
 
@@ -137,15 +103,6 @@ CREATE TABLE `pago` (
   PRIMARY KEY (`idPago`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pago`
---
-
-LOCK TABLES `pago` WRITE;
-/*!40000 ALTER TABLE `pago` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pago` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `pelicula`
@@ -165,14 +122,6 @@ CREATE TABLE `pelicula` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pelicula`
---
-
-LOCK TABLES `pelicula` WRITE;
-/*!40000 ALTER TABLE `pelicula` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pelicula` ENABLE KEYS */;
-UNLOCK TABLES;
---
 -- Table structure for table `tarjeta`
 --
 
@@ -188,15 +137,6 @@ CREATE TABLE `tarjeta` (
   KEY `idUsuario` (`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tarjeta`
---
-
-LOCK TABLES `tarjeta` WRITE;
-/*!40000 ALTER TABLE `tarjeta` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tarjeta` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `usuario`
@@ -221,15 +161,6 @@ CREATE TABLE `usuario` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuario`
---
-
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `vendedor`
 --
 
@@ -247,15 +178,6 @@ CREATE TABLE `vendedor` (
   PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `vendedor`
---
-
-LOCK TABLES `vendedor` WRITE;
-/*!40000 ALTER TABLE `vendedor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vendedor` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `venta`
@@ -278,14 +200,6 @@ CREATE TABLE `venta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `venta`
---
-
-LOCK TABLES `venta` WRITE;
-/*!40000 ALTER TABLE `venta` DISABLE KEYS */;
-/*!40000 ALTER TABLE `venta` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
