@@ -15,28 +15,65 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `compradetalle`
---
 
 DROP DATABASE IF EXISTS `tienda`;
 CREATE DATABASE `tienda`;
 USE `tienda`;
 
+--
+-- Table structure for table `imagen`
+--
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `compradetalle` (
-  `idCompraDetalle` int(11) NOT NULL AUTO_INCREMENT,
-  `idInventario` int(11) NOT NULL,
-  `idVenta` int(11) NOT NULL,
-  `cantidad` int(11) DEFAULT NULL,
-  `subtotal` decimal(10,0) DEFAULT NULL,
-  PRIMARY KEY (`idCompraDetalle`),
-  KEY `idInventario` (`idInventario`),
-  KEY `idVenta` (`idVenta`)
+CREATE TABLE `imagen` (
+  `idImagen` int(11) NOT NULL AUTO_INCREMENT,
+  `imagen` varchar(450) NOT NULL,
+  PRIMARY KEY (`idImagen`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `usuario`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuario` (
+  `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(20) DEFAULT NULL,
+  `apellidoP` varchar(20) DEFAULT NULL,
+  `apellidoM` varchar(20) DEFAULT NULL,
+  `fech_na` date DEFAULT NULL,
+  `correo` varchar(150) DEFAULT NULL,
+  `sexo` varchar(2) DEFAULT NULL,
+  `telefono` varchar(15) DEFAULT NULL,
+  `tipo` varchar(10) DEFAULT NULL,
+  `password` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`idUsuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `inventario`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `inventario` (
+  `idInventario` int(11) NOT NULL AUTO_INCREMENT,
+  `idImagen` int(11) NOT NULL,
+  `nombre` varchar(250) DEFAULT NULL,
+  `categoria` varchar(200) DEFAULT NULL,
+  `anio` varchar(15) DEFAULT NULL,
+  `numPiezas` int(11) DEFAULT NULL,
+  `precioCompra` decimal(10,0) DEFAULT NULL,
+  `precioVenta` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`idInventario`),
+  KEY `idImagen` (`idImagen`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `disco`
@@ -52,37 +89,19 @@ CREATE TABLE `disco` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-
 --
--- Table structure for table `imagen`
---
-
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `imagen` (
-  `idImagen` int(11) NOT NULL AUTO_INCREMENT,
-  `imagen` varchar(450) DEFAULT NULL,
-  PRIMARY KEY (`idImagen`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `inventario`
+-- Table structure for table `tarjeta`
 --
 
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `inventario` (
-  `idInventario` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(250) DEFAULT NULL,
-  `categoria` varchar(200) DEFAULT NULL,
-  `anio` varchar(15) DEFAULT NULL,
-  `numPiezas` int(11) DEFAULT NULL,
-  `precioCompra` decimal(10,0) DEFAULT NULL,
-  `precioVenta` decimal(10,0) DEFAULT NULL,
-  `idImagen` int(11) NOT NULL,
-  PRIMARY KEY (`idInventario`),
-  KEY `idImagen` (`idImagen`)
+CREATE TABLE `tarjeta` (
+  `idTarjeta` int(11) NOT NULL AUTO_INCREMENT,
+  `numero` varchar(50) DEFAULT NULL,
+  `tipo` varchar(30) DEFAULT NULL,
+  `idUsuario` int(11) NOT NULL,
+  PRIMARY KEY (`idTarjeta`),
+  KEY `idUsuario` (`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -98,6 +117,48 @@ CREATE TABLE `pago` (
   PRIMARY KEY (`idPago`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `venta`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `venta` (
+  `idVenta` int(11) NOT NULL AUTO_INCREMENT,
+  `idUsuario` int(11) NOT NULL,
+  `fecha` date DEFAULT NULL,
+  `total` decimal(10,0) DEFAULT NULL,
+  `idPago` int(11) NOT NULL,
+  `idTarjeta` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idVenta`),
+  KEY `idUsuario` (`idUsuario`),
+  KEY `idPago` (`idPago`),
+  KEY `idTarjeta` (`idTarjeta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `compradetalle`
+--
+
+
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `compradetalle` (
+  `idCompraDetalle` int(11) NOT NULL AUTO_INCREMENT,
+  `idInventario` int(11) NOT NULL,
+  `idVenta` int(11) NOT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `subtotal` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`idCompraDetalle`),
+  KEY `idInventario` (`idInventario`),
+  KEY `idVenta` (`idVenta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 
 --
 -- Table structure for table `idioma`
@@ -147,42 +208,7 @@ CREATE TABLE `pelicula_subtitulo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `tarjeta`
---
 
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tarjeta` (
-  `idTarjeta` int(11) NOT NULL AUTO_INCREMENT,
-  `numero` varchar(50) DEFAULT NULL,
-  `tipo` varchar(30) DEFAULT NULL,
-  `idUsuario` int(11) NOT NULL,
-  PRIMARY KEY (`idTarjeta`),
-  KEY `idUsuario` (`idUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `usuario`
---
-
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `usuario` (
-  `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(20) DEFAULT NULL,
-  `apellidoP` varchar(20) DEFAULT NULL,
-  `apellidoM` varchar(20) DEFAULT NULL,
-  `fech_na` date DEFAULT NULL,
-  `correo` varchar(150) DEFAULT NULL,
-  `sexo` varchar(2) DEFAULT NULL,
-  `telefono` varchar(15) DEFAULT NULL,
-  `tipo` varchar(10) DEFAULT NULL,
-  `password` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `vendedor`
@@ -202,25 +228,6 @@ CREATE TABLE `vendedor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `venta`
---
-
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `venta` (
-  `idVenta` int(11) NOT NULL AUTO_INCREMENT,
-  `idUsuario` int(11) NOT NULL,
-  `fecha` date DEFAULT NULL,
-  `total` decimal(10,0) DEFAULT NULL,
-  `idPago` int(11) NOT NULL,
-  `idTarjeta` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idVenta`),
-  KEY `idUsuario` (`idUsuario`),
-  KEY `idPago` (`idPago`),
-  KEY `idTarjeta` (`idTarjeta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
