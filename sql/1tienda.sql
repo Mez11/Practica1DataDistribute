@@ -29,7 +29,7 @@ USE `tienda`;
 CREATE TABLE `imagen` (
   `idImagen` int(11) NOT NULL AUTO_INCREMENT,
   `imagen` varchar(450) NOT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idImagen`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -51,7 +51,7 @@ CREATE TABLE `usuario` (
   `telefono` varchar(15) DEFAULT NULL,
   `tipo` varchar(10) NOT NULL,
   `password` varchar(60) NOT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -65,7 +65,7 @@ CREATE TABLE `usuario` (
 CREATE TABLE `categoria` (
   `idCategoria` int(11) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(200) DEFAULT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idCategoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -85,7 +85,7 @@ CREATE TABLE `inventario` (
   `numPiezas` int(11) DEFAULT NULL,
   `precioCompra` decimal(10,2) DEFAULT NULL,
   `precioVenta` decimal(10,2) DEFAULT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idInventario`),
   FOREIGN KEY (`idImagen`) REFERENCES `imagen`(`idImagen`),
   FOREIGN KEY (`idCategoria`) REFERENCES `categoria`(`idCategoria`)
@@ -102,7 +102,7 @@ CREATE TABLE `disco` (
   `idInventario` int(11) NOT NULL AUTO_INCREMENT,
   `numCanciones` int(11) DEFAULT NULL,
   `interprete` varchar(120) DEFAULT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idInventario`),
   FOREIGN KEY ( `idInventario` ) REFERENCES `inventario`(`idInventario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -119,7 +119,7 @@ CREATE TABLE `tarjeta` (
   `idUsuario` int(11) NOT NULL,
   `numero` varchar(50) NOT NULL,
   `tipo` varchar(30) DEFAULT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idTarjeta`),
   FOREIGN KEY (`idUsuario`)  REFERENCES `usuario`(`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -134,7 +134,7 @@ CREATE TABLE `tarjeta` (
 CREATE TABLE `pago` (
   `idPago` int(11) NOT NULL AUTO_INCREMENT,
   `pago` decimal(10,2) DEFAULT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idPago`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -152,7 +152,7 @@ CREATE TABLE `venta` (
   `idUsuario` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `total` decimal(10,4) NOT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idVenta`),
   FOREIGN KEY (`idUsuario`) REFERENCES `usuario`(`idUsuario`),
   FOREIGN KEY (`idPago`) REFERENCES `pago`(`idPago`),
@@ -175,7 +175,7 @@ CREATE TABLE `compradetalle` (
   `idVenta` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `subtotal` decimal(10,4) NOT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idCompraDetalle`),
   FOREIGN KEY (`idInventario`) REFERENCES `inventario` (`idInventario`),
   FOREIGN KEY (`idVenta`) REFERENCES `venta` (`idVenta`)
@@ -192,7 +192,7 @@ CREATE TABLE `compradetalle` (
 CREATE TABLE `idioma` (
   `idIdioma` int(11) NOT NULL AUTO_INCREMENT,
   `idioma` varchar(60) NOT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idIdioma`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -209,7 +209,7 @@ CREATE TABLE `pelicula` (
   `idIdioma` int(11) NOT NULL,
   `formato` varchar(150) DEFAULT NULL,
   `director` varchar(250) DEFAULT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idInventario`),
   FOREIGN KEY ( `idInventario` ) REFERENCES `inventario`(`idInventario`),
   FOREIGN KEY (`idIdioma`) REFERENCES `idioma`( `idIdioma` )
@@ -225,7 +225,7 @@ CREATE TABLE `pelicula` (
 CREATE TABLE `pelicula_subtitulo` (
   `idIdioma` int(11) NOT NULL,
   `idPelicula` int(11) NOT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idIdioma`,`idPelicula` ),
   FOREIGN KEY (`idIdioma`) REFERENCES `idioma`( `idIdioma` ),
   FOREIGN KEY (`idPelicula`) REFERENCES `pelicula`( `idInventario` )
@@ -248,7 +248,7 @@ CREATE TABLE `vendedor` (
   `valComision` decimal(10,2) DEFAULT NULL,
   `salarioBase` decimal(10,2) DEFAULT NULL,
   `ventas` int(11) DEFAULT NULL,
-  `estatus` boolean NOT NULL DEFAULT 1,
+  `estatus` bit NOT NULL DEFAULT 1,
   PRIMARY KEY (`idUsuario`),
   FOREIGN KEY (`idUsuario`) REFERENCES `usuario`(`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
