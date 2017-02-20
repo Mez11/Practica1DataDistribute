@@ -17,9 +17,10 @@
 			$numPiezas = $objetoInventario->getNumPiezas();
 			$precioCompra = $objetoInventario->getPrecioCompra();
 			$precioVenta = $objetoInventario->getPrecioVenta();
-			$stm = $con -> prepare('INSERT INTO '.self::TABLA.' (idInventario,idImagen,idCategoria,nombre,anio,numPiezas,precioCompra,precioVenta) values (:idInventario,idImagen,idCategoria,nombre,anio,numPiezas,precioCompra,precioVenta)');
-			$stm->bindParam(':idInventario', $idInventario);
+			//Dejaremos que el ID lo genere en automatico MySQL
+			$stm = $con -> prepare('INSERT INTO '.self::TABLA.' (idImagen,idCategoria,nombre,anio,numPiezas,precioCompra,precioVenta) values (:idInventario,:idImagen,:idCategoria,:nombre,:anio,:numPiezas,:precioCompra,:precioVenta)');
 			$stm->bindParam(':idImagen', $idImagen);
+			$stm->bindParam(':idCategoria', $idCategoria);
 			$stm->bindParam(':nombre',$nombre);
 			$stm->bindParam(':anio',$anio);
 			$stm->bindParam(':numPiezas',$numPiezas);
@@ -44,8 +45,8 @@
 		}
 		public function consultarUnInventario($idInventario){
 			$con = new Conexion();
-			$stm = $con->prepare('SELECT * FROM '.self::TABLA.' WHERE idInventario = :idInventario','idImagen = :idImagen','idCategoria = :idCategoria');
-			$stm->bindParam(':idInventario', $idInventario,':idImagen',$idImagen,':idCategoria',$idCategoria);
+			$stm = $con->prepare('SELECT * FROM '.self::TABLA.' WHERE idInventario = :idInventario');
+			$stm->bindParam(':idInventario', $idInventario );
 			$stm->execute();
 			$inventario;
 			if($res = $stm->fetch()){
@@ -54,10 +55,6 @@
 			return $inventario;
 
 		}
-		//Esto no esta en git, verdad?
-		//NO pero puedo pegar todo el code en visual
-		//Yo sugiero que lo hagas, no por que este en visual studio o en atom,
-		//sino para que puedas ir versionando el codigo y, si hay error, regresar
 		public function editar( $objetoInventario ){
 			$con = new Conexion();
 			$nombre = $objetoInventario->getNombre( );
