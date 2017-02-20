@@ -1,3 +1,6 @@
+<?php
+	require_once 'DAOInventario.php';
+ ?>
 <html>
 <head>
 </head>
@@ -9,7 +12,6 @@
 		<input type="submit"/>
 	</form>
 	<?php
-		require_once 'DAOInventario.php';
 		$dao = new DAOProducto();
 		$arrayP = $dao->listarProductos();
 		$numRegistros = count($arrayP);

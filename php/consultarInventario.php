@@ -24,6 +24,7 @@
 		echo "<br><br>";
 	?>
 	<!-- ñaja tengo que decir... todo esto era mas bonito (visualmente hablando, es decir, diseño) con JSF -->
+	<!-- ademas de que mucho mas rapido-->
 		<input type="submit" name="Editar" value="Editar"/>
 		<input type="submit" name="Cancelar" value="Eliminar"/>
 	</form>
