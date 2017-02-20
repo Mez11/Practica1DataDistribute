@@ -18,7 +18,8 @@
 			$precioCompra = $objetoInventario->getPrecioCompra();
 			$precioVenta = $objetoInventario->getPrecioVenta();
 			//Dejaremos que el ID lo genere en automatico MySQL
-			$stm = $con -> prepare('INSERT INTO '.self::TABLA.' (idImagen,idCategoria,nombre,anio,numPiezas,precioCompra,precioVenta) values (:idInventario,:idImagen,:idCategoria,:nombre,:anio,:numPiezas,:precioCompra,:precioVenta)');
+			$stm = $con -> prepare('INSERT INTO '.self::TABLA.' (idImagen,idCategoria,nombre,anio,numPiezas,precioCompra,precioVenta) 
+			values (:idImagen,:idCategoria,:nombre,:anio,:numPiezas,:precioCompra,:precioVenta)');
 			$stm->bindParam(':idImagen', $idImagen);
 			$stm->bindParam(':idCategoria', $idCategoria);
 			$stm->bindParam(':nombre',$nombre);
