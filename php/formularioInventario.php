@@ -7,12 +7,16 @@
 <body>
 	<form action="prueba2.php" method="POST">
 		<p>Nombre:</p><input type="text" name="nombre"/>
-		<p>Precio:</p><input type="text" name="precio"/>
+		<p>Precio de compra:</p><input type="text" name="precio"/>
+		<label>Imagen</label> <br/>
+		<input type="text" name="id_imagen"/>
+		<label>Categoria</label>
+		<input type="text" name="id_categoria"/>
 		<br><br>
 		<input type="submit"/>
 	</form>
 	<?php
-		$dao = new DAOProducto();
+		$dao = new DAOInventario();
 		$arrayP = $dao->listarProductos();
 		$numRegistros = count($arrayP);
 		echo"<table>";
