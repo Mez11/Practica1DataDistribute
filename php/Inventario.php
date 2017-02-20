@@ -9,8 +9,17 @@
 		var $precioCompra;
 		var $precioVenta;
 
-
-		public function Inventario($idInventario,$idImagen,$idCategoria,$nombre,$anio,$numPiezas,$precioCompra,$precioVenta){
+		//Parametros opcionales (default: null)
+		public function Inventario(
+			$idInventario=null,
+			$idImagen=null,
+			$idCategoria=null,
+			$nombre=null,
+			$anio=null,
+			$numPiezas=null,
+			$precioCompra=null,
+			$precioVenta=null)
+		{
 			$this->idInventario = $idInventario;
 			$this->idImagen = $idImagen;
 			$this->idCategoria = $idCategoria;
