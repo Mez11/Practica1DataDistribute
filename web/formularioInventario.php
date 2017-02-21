@@ -13,28 +13,33 @@
 	<script type="text/javascript">
 		$( document ).ready( function( ){
 			$( "#addInventarioPopup" ).iziModal( );
-			$( "#addInventarioPopup" ).iziModal( "open" );
 		} );
 	</script>
 </head>
 <body>
-	<div id="addInventarioPopup" >
-		Este es un popup
-	</div>
-	<form action="agregaInventario.php" method="POST">
-		<p>*Nombre:</p><input type="text" name="nombre"/>
-		<p>*Anio:</p><input type="text" name="anio"/>
-		<p>*Numero de piezas:</p><input type="text" name="numPiezas">
-		<p>*Precio de compra:</p><input type="text" name="precioCompra"/>
-		<p>*Precio de venta:</p><input type="text" name="precioVenta"/>
-		<p><label>Imagen:</label> </p>
 
-		<input type="text" name="id_imagen"/>
-		<p><label>*Categoria:</label></p>
-		<input type="text" name="id_categoria"/>
-		<br><br>
-		<input type="submit" value="Agregar producto"/>
-	</form>
+	<div id="addInventarioPopup" >
+		<form action="agregaInventario.php" method="POST">
+			<p>*Nombre:</p><input type="text" name="nombre"/>
+			<p>*Anio:</p><input type="text" name="anio"/>
+			<p>*Numero de piezas:</p><input type="text" name="numPiezas">
+			<p>*Precio de compra:</p><input type="text" name="precioCompra"/>
+			<p>*Precio de venta:</p><input type="text" name="precioVenta"/>
+			<p><label>Imagen:</label> </p>
+
+			<input type="text" name="id_imagen"/>
+			<p><label>*Categoria:</label></p>
+			<input type="text" name="id_categoria"/>
+			<br><br>
+			<input type="submit" value="Agregar producto"/>
+		</form>
+	</div>
+	
+	<a data-izimodal-open="addInventarioPopup" style="cursor: pointer" >
+		Agregar inventario
+		<i class="fa fa-plus" aria-hidden="true"></i>
+	</a>
+
 	<?php
 		$dao = new DAOInventario();
 		$arrayP = $dao->listarProductos();
