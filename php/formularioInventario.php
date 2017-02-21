@@ -50,7 +50,7 @@
 					echo "<td>";
 						echo "<a href='consultarInventario.php?idP=".
 							$arrayP[$i]->getIdInventario()."'><button>Editar</button></a>";
-						echo "<a href=''><button>Eliminar</button></a>";
+						echo "<a href='borra.php?idP=".$arrayP[$i]->getIdInventario( )."'><button>Eliminar</button></a>";
 					echo "</td>";
 				echo "</tr>";
 
