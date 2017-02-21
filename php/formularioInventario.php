@@ -6,14 +6,17 @@
 </head>
 <body>
 	<form action="prueba2.php" method="POST">
-		<p>Nombre:</p><input type="text" name="nombre"/>
-		<p>Precio de compra:</p><input type="text" name="precio"/>
-		<label>Imagen</label> <br/>
+		<p>*Nombre:</p><input type="text" name="nombre"/>
+		<p>*Anio:</p><input type="text" name="anio"/>
+		<p>*Numero de piezas:</p><input type="text" name="numPiezas">
+		<p>*Precio de compra:</p><input type="text" name="precioCompra"/>
+		<p>*Precio de venta:</p><input type="text" name="precioVenta"/>
+		<p><label>Imagen:</label> </p>
 		<input type="text" name="id_imagen"/>
-		<label>Categoria</label>
+		<p><label>*Categoria:</label></p>
 		<input type="text" name="id_categoria"/>
 		<br><br>
-		<input type="submit"/>
+		<input type="submit" value="Agregar producto"/>
 	</form>
 	<?php
 		$dao = new DAOInventario();

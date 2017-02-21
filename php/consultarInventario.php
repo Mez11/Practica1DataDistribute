@@ -14,7 +14,7 @@
 		//Como vas a consultar (sin modificar en esta peticion) esta bien pedir los parametros
 		//por GET (mi_pagina.php?mi_parametro=valor)
 		$idInventario = $_GET["idP"];
-		$dao = new DAOProducto();
+		$dao = new DAOInventario();
 		$inventario = $dao->consultarUnInventario( $idInventario );
 		echo "<p>Nombre:</p><input type='text' name='nombre' value=".$inventario->getNombre()." />";
 		echo "<p>Anio:</p><input type='text' name='anio' value=".$inventario->getAnio()." />";
