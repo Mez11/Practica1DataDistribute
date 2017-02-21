@@ -3,6 +3,7 @@
  ?>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
 </head>
 <body>
 	<form action="agregaInventario.php" method="POST">
@@ -23,9 +24,23 @@
 		$dao = new DAOInventario();
 		$arrayP = $dao->listarProductos();
 		$numRegistros = count($arrayP);
-		echo"<table>";
+		echo"<table class='responstable'>";
+			echo "<tr>";
+			echo "<th>ID</th>";
+			echo "<th>idImagen</th>";
+			echo "<th>idCategoria</th>";
+			echo "<th>Nombre</th>";
+			echo "<th>A&ntilde;o</th>";
+			echo "<th>Num. piezas</th>";
+			echo "<th>Precio de compra</th>";
+			echo "<th>Precio de venta</th>";
+			echo "<th>Acciones</th>";
+			echo "</tr>";
 			for($i = 0; $i < $numRegistros; $i++){
 				echo "<tr>";
+					echo "<td>";
+						echo $arrayP[$i]->getIdInventario();
+					echo "</td>";
 					echo "<td>";
 						echo $arrayP[$i]->getidImagen();
 					echo "</td>";
