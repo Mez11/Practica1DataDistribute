@@ -33,7 +33,7 @@
 			$con = new Conexion();
 			//Recomendacion: Listar todos los campos dentro del SELECT
 			//SELECT (campo1, campo2, campo3... campon) FROM tabl
-			$stm= $con->prepare('SELECT * FROM '.self::TABLA);
+			$stm= $con->prepare('SELECT * FROM '.self::TABLA." WHERE estatus = 1 " );
 			$stm->execute();
 			$i= 0;
 			while( $res = $stm->fetch()){
@@ -46,7 +46,7 @@
 		}
 		public function consultarUnInventario($idInventario){
 			$con = new Conexion();
-			$stm = $con->prepare('SELECT * FROM '.self::TABLA.' WHERE idInventario = :idInventario');
+			$stm = $con->prepare('SELECT * FROM '.self::TABLA.' WHERE idInventario = :idInventario AND estatus = 1');
 			$stm->bindParam(':idInventario', $idInventario );
 			$stm->execute();
 			$inventario;
@@ -84,7 +84,8 @@
 
 		public function eliminarProducto($idInventario){
 			$con = new Conexion();
-			$stm = $con->prepare('DELETE FROM '.self::TABLA.' WHERE idInventario = :idInventario');
+			//$stm = $con->prepare('DELETE FROM '.self::TABLA.' WHERE idInventario = :idInventario');
+			$stm = $con->prepare('UPDATE '.self::TABLA.' SET estatus = 0 WHERE idInventario = :idInventario');
 			$stm->bindParam(':idInventario', $idInventario);
 			$stm->execute();
 		}
