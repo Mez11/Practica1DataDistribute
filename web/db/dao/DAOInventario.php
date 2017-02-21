@@ -90,26 +90,5 @@
 			$stm->execute();
 		}
 
-		//TODO: Borrar comentario
-		/**
-		 * El metodo falla cuando hay dos clientes que agregan un item al mismo tiempo
-		 * (se les daria el mismo ID a ambos, y el constraint de UNIQUE de una llave primaria fallaria.)
-		*/
-		/*public function obtieneIdNuevo(){
-			$con = new Conexion();
-			//ESTO NO debe hacerse entonces se actualiza solo oh ¿COmo?
-			//Sip, para eso es el AUTO_INCREMENT que pusimos en la definicion de las tablas 0h ok l
-			//o borro
-			//Si, borra todo el metodo.
-			$stm = $con -> prepare('Select MAX(idInventario)+1 as idInventario FROM '.self::TABLA);
-			$stm->execute();
-			$idNuevo;
-			if($res = $stm->fetch()){
-				$idNuevo = $res["idInventario"];
-			}
-			return $idNuevo;*/
-		//}
-
-
 	}
 ?>
