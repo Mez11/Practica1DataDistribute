@@ -5,7 +5,7 @@
 <head>
 </head>
 <body>
-	<form action="prueba2.php" method="POST">
+	<form action="agregaInventario.php" method="POST">
 		<p>Nombre:</p><input type="text" name="nombre"/>
 		<p>Precio de compra:</p><input type="text" name="precio"/>
 		<p><label>Imagen</label> </p>
