@@ -41,10 +41,11 @@
 	}
 */
 	if (isset($_POST['Editar'])) {
-		$dao->editarInventario($inventario);
+		$dao->editarInventario($inventario->getIdInventario());
 		echo "<script>alert('Inventario editado');window.location.href='formularioInventario.php';</script>";
 	}else{
 		$dao->eliminarInventario( $inventario->getIdInventario( ) );
 		echo "<script>alert('Inventario Eliminado');window.location.href='formularioInventario.php';</script>";
+		
 	}
 ?>

@@ -51,7 +51,13 @@
 			$stm->execute();
 			$inventario;
 			if($res = $stm->fetch()){
-				$inventario = new Inventario($res["idInventario"],$res["idImagen"],$res["nombre"],$res["anio"],$res["numPiezas"],$res["precioCompra"],$res["precioVenta"]);
+				$inventario = new Inventario();
+				$inventario->setIdInventario( $res["idInventario"] );
+				$inventario->setNombre( $res["nombre"] );
+				$inventario->setAnio($res["anio"]);
+				$inventario->setNumPiezas($res["numPiezas"]);
+				$inventario->setprecioCompra($res["precioCompra"]);
+				$inventario->setprecioVenta($res["precioVenta"]);
 			}
 			return $inventario;
 
