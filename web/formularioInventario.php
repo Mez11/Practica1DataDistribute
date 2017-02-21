@@ -6,8 +6,21 @@
 	<title>Formulario de inventario</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/iziModal.min.css" />
+
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+	<script type="text/javascript" src="js/iziModal.min.js" ></script>
+	<script type="text/javascript">
+		$( document ).ready( function( ){
+			$( "#addInventarioPopup" ).iziModal( );
+			$( "#addInventarioPopup" ).iziModal( "open" );
+		} );
+	</script>
 </head>
 <body>
+	<div id="addInventarioPopup" >
+		Este es un popup
+	</div>
 	<form action="agregaInventario.php" method="POST">
 		<p>*Nombre:</p><input type="text" name="nombre"/>
 		<p>*Anio:</p><input type="text" name="anio"/>
