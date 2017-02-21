@@ -8,12 +8,12 @@
 	<form action="prueba2.php" method="POST">
 		<p>Nombre:</p><input type="text" name="nombre"/>
 		<p>Precio de compra:</p><input type="text" name="precio"/>
-		<label>Imagen</label> <br/>
+		<p><label>Imagen</label> </p>
 		<input type="text" name="id_imagen"/>
-		<label>Categoria</label>
+		<p><label>Categoria</label></p>
 		<input type="text" name="id_categoria"/>
 		<br><br>
-		<input type="submit"/>
+		<input type="submit" value="Agregar inventario"/>
 	</form>
 	<?php
 		$dao = new DAOInventario();
@@ -44,7 +44,9 @@
 						echo $arrayP[$i]->getPrecioVenta();
 					echo "</td>";
 					echo "<td>";
-						echo "<a href='consultarInventario.php?idP=".$arrayP[$i]->getIdInventario()."'>Editar</a>";
+						echo "<a href='consultarInventario.php?idP=".
+							$arrayP[$i]->getIdInventario()."'><button>Editar</button></a>";
+						echo "<a href=''><button>Eliminar</button></a>";
 					echo "</td>";
 				echo "</tr>";
 
