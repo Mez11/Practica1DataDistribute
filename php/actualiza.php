@@ -1,6 +1,6 @@
 <?php
-	require_once 'DAOInventario.php';
-	require_once 'Inventario.php';
+	require_once 'db/dao/DAOInventario.php';
+	require_once 'db/dto/Inventario.php';
 	$dao = new DAOInventario();
 	//$_GET["unParametro"]; // = request.getParameter( "unParametro" ) en java (en el metodo doGet).
 	//$_POST["UnParametro"]; // = request.getParameter( "unParametro" ) en java (en el metodo doPost)

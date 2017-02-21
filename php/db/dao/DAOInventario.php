@@ -1,6 +1,6 @@
 <?php
-	require_once 'Conexion.php';
-	require_once 'Inventario.php';
+	require_once 'db/Conexion.php';
+	require_once 'db/dto/Inventario.php';
 	class DAOInventario{
 		//var $con;
 		const TABLA = 'inventario';
