@@ -3,7 +3,9 @@
  ?>
 <html>
 <head>
+	<title>Formulario de inventario</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
 </head>
 <body>
 	<form action="agregaInventario.php" method="POST">
@@ -64,8 +66,8 @@
 					echo "</td>";
 					echo "<td>";
 						echo "<a href='consultarInventario.php?idP=".
-							$arrayP[$i]->getIdInventario()."'><button>Editar</button></a>";
-						echo "<a href='borra.php?idP=".$arrayP[$i]->getIdInventario( )."'><button>Eliminar</button></a>";
+							$arrayP[$i]->getIdInventario()."'><i class='fa fa-pencil-square-o' title='Editar'></i></a>";
+						echo "<a href='borra.php?idP=".$arrayP[$i]->getIdInventario( )."'><i class='fa fa-trash' title='Eliminar' ></i></a>";
 					echo "</td>";
 				echo "</tr>";
 
