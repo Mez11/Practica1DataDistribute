@@ -19,5 +19,5 @@
 	$dao->insertar($inventario);
 
 
-	echo "<script>alert('Producto agregado');window.location.href='formularioProducto.php';</script>";
+	echo "<script>alert('Producto agregado');window.location.href='formularioInventario.php';</script>";
 ?>
