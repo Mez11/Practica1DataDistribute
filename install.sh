@@ -1,3 +1,2 @@
-
-cp php/* /var/www/html -r
+cp web/* /var/www/html -r
 firefox localhost
