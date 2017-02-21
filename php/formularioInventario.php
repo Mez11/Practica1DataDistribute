@@ -6,6 +6,7 @@
 </head>
 <body>
 	<form action="prueba2.php" method="POST">
+
 		<p>*Nombre:</p><input type="text" name="nombre"/>
 		<p>*Anio:</p><input type="text" name="anio"/>
 		<p>*Numero de piezas:</p><input type="text" name="numPiezas">
@@ -47,7 +48,9 @@
 						echo $arrayP[$i]->getPrecioVenta();
 					echo "</td>";
 					echo "<td>";
-						echo "<a href='consultarInventario.php?idP=".$arrayP[$i]->getIdInventario()."'>Editar</a>";
+						echo "<a href='consultarInventario.php?idP=".
+							$arrayP[$i]->getIdInventario()."'><button>Editar</button></a>";
+						echo "<a href=''><button>Eliminar</button></a>";
 					echo "</td>";
 				echo "</tr>";
 
