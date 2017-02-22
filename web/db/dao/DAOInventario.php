@@ -37,7 +37,15 @@
 			$stm->execute();
 			$i= 0;
 			while( $res = $stm->fetch()){
-				$inventario = new Inventario($res["idInventario"],$res["idImagen"],$res["nombre"],$res["anio"],$res["numPiezas"],$res["precioCompra"],$res["precioVenta"]);
+				$inventario = new Inventario( );
+				$inventario->setIdInventario( $res["idInventario"] );
+				$inventario->setIdImagen( $res["idImagen"] );
+				$inventario->setIdCategoria( $res["idCategoria"] );
+				$inventario->setNombre( $res["nombre"] );
+				$inventario->setAnio($res["anio"]);
+				$inventario->setNumPiezas($res["numPiezas"]);
+				$inventario->setprecioCompra($res["precioCompra"]);
+				$inventario->setprecioVenta($res["precioVenta"]);
 				$array[$i] = $inventario;
 				$i++;
 			}
@@ -51,8 +59,10 @@
 			$stm->execute();
 			$inventario;
 			if($res = $stm->fetch()){
-				$inventario = new Inventario();
+				$inventario = new Inventario( );
 				$inventario->setIdInventario( $res["idInventario"] );
+				$inventario->setIdImagen( $res["idImagen"] );
+				$inventario->setIdCategoria( $res["idCategoria"] );
 				$inventario->setNombre( $res["nombre"] );
 				$inventario->setAnio($res["anio"]);
 				$inventario->setNumPiezas($res["numPiezas"]);
@@ -71,7 +81,7 @@
 			$precioVenta = $objetoInventario->getPrecioVenta();
 			$idImagen = $objetoInventario->getIdImagen( );
 			$idInventario = $objetoInventario->getIdInventario();
-			$stm = $con -> prepare('UPDATE '.self::TABLA.' SET idImagen=:idImagen, nombre = :nombre,anio = :anio, numPiezas = :numPiezas,precioCompra = :precioCompra, precioVenta = :precioVenta,where idInventario = :idInventario');
+			$stm = $con -> prepare('UPDATE '.self::TABLA.' SET idImagen=:idImagen, nombre = :nombre,anio = :anio, numPiezas = :numPiezas,precioCompra = :precioCompra, precioVenta = :precioVenta where idInventario = :idInventario');
 			$stm->bindParam( ':idImagen', $idImagen );
 			$stm->bindParam(':nombre', $nombre);
 			$stm->bindParam(':anio',$anio);
