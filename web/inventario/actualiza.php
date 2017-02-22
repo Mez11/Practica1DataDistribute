@@ -3,9 +3,9 @@
 	require_once '../db/dto/Inventario.php';
 	$dao = new DAOInventario();
 	$inventario = new Inventario(
-		$_POST["idP"],
-		$_POST["idIm"],
-		$_POST["idCat"],
+		$_POST["idInventario"],
+		$_POST["idImagen"],
+		$_POST["idCatalogo"],
 		$_POST["nombre"],
 		$_POST["anio"],
 		$_POST["numPiezas"],
@@ -33,10 +33,10 @@
 	}
 */
 	if (isset($_POST['Editar'])) {
-		$dao->editarInventario($inventario->getIdInventario());
+		$dao->editar( $inventario );
 		echo "<script>alert('Inventario editado');window.location.href='formularioInventario.php';</script>";
 	}else{
-		$dao->eliminarInventario( $inventario->getIdInventario( ) );
+		$dao->eliminarProducto( $inventario->getIdInventario( ) );
 		echo "<script>alert('Inventario Eliminado');window.location.href='formularioInventario.php';</script>";
 		
 	}
