@@ -4,12 +4,12 @@
 <html>
 <head>
 	<title>Formulario de inventario</title>
-	<link rel="stylesheet" type="text/css" href="css/index.css" />
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/iziModal.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/iziModal.min.css" />
 
-	<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
-	<script type="text/javascript" src="js/iziModal.min.js" ></script>
+	<script type="text/javascript" src="../js/jquery-3.1.1.min.js" ></script>
+	<script type="text/javascript" src="../js/iziModal.min.js" ></script>
 	<script type="text/javascript">
 		$( document ).ready( function( ){
 			$( "#addInventarioPopup" ).iziModal( );
