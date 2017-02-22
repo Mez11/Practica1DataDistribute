@@ -2,14 +2,6 @@
 	require_once 'db/dao/DAOInventario.php';
 	require_once 'db/dto/Inventario.php';
 	$dao = new DAOInventario();
-	//$_GET["unParametro"]; // = request.getParameter( "unParametro" ) en java (en el metodo doGet).
-	//$_POST["UnParametro"]; // = request.getParameter( "unParametro" ) en java (en el metodo doPost)
-	//Idealmente si, aunque supongo que es posible (aunque no recomendable) combinar 
-	//los metodos (como lo estabas haciendo)
-	//$_GET y $_POST son para obtener parametros del usuario. Solo que nos son por medio del
-	//metodo GET, y otros son del metodo POST (de acuerdo con el protocolo HTTP)
-	//En ningun momento estos metodos te serviran para obtener valores de la BD.
-
 	$inventario = new Inventario(
 		$_POST["idP"],
 		$_POST["idIm"],
