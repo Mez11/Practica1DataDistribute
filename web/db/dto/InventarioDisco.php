@@ -1,5 +1,5 @@
 <?php
-	class Inventario{
+	class InventarioDisco{
 		var $idInventario;
 		var $numCanciones;
 		var $interprete;

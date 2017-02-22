@@ -7,11 +7,11 @@
 <body>
 
 	<?php
-		//esta pagina para que es??? para consultar el inventario osea vizualizar los productos
-		//en el method del formulario (POST) estas definiendo que los subsecuentes parametros
+	
+		//en el method del formulario (POST) se definien que los subsecuentes parametros
 		//se enviaran por POST.
 		echo "<form action='actualiza.php' method='POST'>";
-		//Como vas a consultar (sin modificar en esta peticion) esta bien pedir los parametros
+	
 		//por GET (mi_pagina.php?mi_parametro=valor)
 		$idInventario = $_GET["idP"];
 		$dao = new DAOInventario();
@@ -26,8 +26,7 @@
 		echo "<p>precioVenta:</p><input type='text' name='precioVenta' value=".$inventario->getPrecioVenta()." />";
 		echo "<br><br>";
 	?>
-	<!-- ñaja tengo que decir... todo esto era mas bonito (visualmente hablando, es decir, diseño) con JSF -->
-	<!-- ademas de que mucho mas rapido-->
+	
 		<input type="submit" name="Editar" value="Editar"/>
 		<input type="submit" name="Cancelar" value="Eliminar"/>
 	</form>

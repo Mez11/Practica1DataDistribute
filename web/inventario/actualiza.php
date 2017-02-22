@@ -13,25 +13,7 @@
 		$_POST["precioCompra"],
 		$_POST["precioVenta"]
 	);
-	//Seria mejor tener una variable bandera que te indique si editar (true) o eliminar (false)
-	//en vz de comprobar si una variable esta en null. Esto puede llevar a 
-	//falsos positivos. osea que debo crear un metodo para ello
-	//Nope. Deberias de checar si existe 
-	//o sea, algo asi:
-/*	$editar = $_POST["editar"];
-	if( isset( $editar ) ){
-		if( $editar == true ){
-			//hacer cosas para editar
-		}
-		else{
-			//Hacer cosas para agregar
-		}
-	}
-	else{
-		//ERROR: la variable "editar" no fue enviada por el cliente
-		//Informarle del error.
-	}
-*/
+
 	if (isset($_POST['Editar'])) {
 		$dao->editar( $inventario );
 		echo "<script>alert('Inventario editado');window.location.href='formularioInventario.php';</script>";
