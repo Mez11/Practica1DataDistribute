@@ -1,6 +1,6 @@
 <?php
-	require_once 'db/dao/DAOInventario.php';
-	require_once 'db/dto/Inventario.php';
+	require_once '../db/dao/DAOInventario.php';
+	require_once '../db/dto/Inventario.php';
 	$dao = new DAOInventario();
 	$inventario = new Inventario(
 		$_POST["idP"],

@@ -1,5 +1,5 @@
 <?php
-	require_once 'db/dao/DAOInventario.php';
+	require_once '../db/dao/DAOInventario.php';
  ?>
 <html>
 <head>

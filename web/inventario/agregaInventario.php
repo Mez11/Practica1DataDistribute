@@ -1,5 +1,5 @@
 <?php
-	require_once 'db/dao/DAOInventario.php';
+	require_once '../db/dao/DAOInventario.php';
 	$dao = new DAOInventario();
 	//El ID NO DEBE SER OBTENIDO por medios de programacion (en el caso de ID nuevo)
 	//$idNuevo = $dao->obtieneIdNuevo();
