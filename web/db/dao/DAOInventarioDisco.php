@@ -53,7 +53,8 @@
 			$idInventario = $objetoInventarioDisco->getIdInventario();
 			$numCanciones = $objetoInventarioDisco->getnumCanciones();
 			$interprete = $objetoInventarioDisco->getInterprete();
-			$stm = $con -> prepare('UPDATE '.self::TABLA.' SET numCanciones=:numCanciones, interprete = :interprete  where idInventario = :idInventario');
+			$stm = $con -> prepare('UPDATE '.self::TABLA.' SET numCanciones=:numCanciones,
+			 interprete = :interprete  where idInventario = :idInventario');
 			$stm->bindParam(':idInventario', $idInventario); 
 			$stm->bindParam(':numCanciones', $numCanciones);
 			$stm->bindParam(':interprete', $interprete);
