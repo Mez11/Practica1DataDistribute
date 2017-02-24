@@ -20,7 +20,7 @@
 			return $this->idInventario;
 		}
 		public function getNumCanciones(){
-			return $this->getNumCanciones;
+			return $this->numCanciones;
 		}
 		public function getInterprete(){
 			return $this->interprete; 
@@ -33,7 +33,7 @@
 		public function setnumCanciones($valor){
 			$this->numCanciones = $valor;
 		}
-		public function setInteprete($valor){
+		public function setInterprete($valor){
 			$this->interprete = $valor;
 		}
 		

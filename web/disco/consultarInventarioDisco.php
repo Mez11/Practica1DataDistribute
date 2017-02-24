@@ -13,7 +13,7 @@
 		//por GET (mi_pagina.php?mi_parametro=valor)
 		$idInventario = $_GET["idP"];
 		$dao = new DAOInventarioDisco();
-		$inventario = $dao->consultarUnInventarioDisco( $idInventario );
+		$disco = $dao->consultarUnInventarioDisco( $idInventario );
 		echo "<p>Id inventario:</p><input type='hidden' name='idInventario' value='".$disco->getIdInventario()."' />";
 		echo "<p>Numero de canciones:</p><input type='text' name='numCanciones' value='".$disco->getnumCanciones()."' />";
 		echo "<p>Interprete:</p><input type='text' name='interprete' value='".$disco->getInterprete()."' />";

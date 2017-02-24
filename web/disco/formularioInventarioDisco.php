@@ -40,6 +40,7 @@
 			echo "<th>ID</th>";
 			echo "<th>numero de canciones</th>";
 			echo "<th>interprete</th>";
+			echo "<th>acciones</th>";
 			echo "</tr>";
 			for($i = 0; $i < $numRegistros; $i++){
 				echo "<tr>";
@@ -50,11 +51,9 @@
 						echo $arrayP[$i]->getnumCanciones();
 					echo "</td>";
 					echo "<td>";
-						echo $arrayP[$i]->getInteprete();
+						echo $arrayP[$i]->getInterprete();
 					echo "</td>";
-					echo "<td>";
-						echo $arrayP[$i]->getPrecioVenta();
-					echo "</td>";
+			
 					echo "<td>";
 						echo "<a href='consultarInventarioDisco.php?idP=".
 							$arrayP[$i]->getIdInventario()."'><i class='fa fa-pencil-square-o' title='Editar'></i></a>";
@@ -69,3 +68,4 @@
 	?>
 </body>
 </html>
+

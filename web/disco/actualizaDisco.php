@@ -3,14 +3,14 @@
 	require_once '../db/dao/DAOInventarioDisco.php';
 	require_once '../db/dto/InventarioDisco.php';
 	$dao = new DAOInventarioDisco();
-	$disco = new Disco(
+	$disco = new InventarioDisco(
 		$_POST["idInventario"],
 		$_POST["numCanciones"],
 		$_POST["interprete"]
 		
 	);
 
-	if (isset($_POST['EditarDisco'])) {
+	if (isset($_POST['Editar'])) {
 		$dao->editar( $disco );
 		echo "<script>alert('Disco editado');window.location.href='formularioInventarioDisco.php';</script>";
 	}else{
