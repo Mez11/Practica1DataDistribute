@@ -12,8 +12,9 @@
 			$idInventario = $objetoInventarioDisco->getIdInventario();
 			$numCanciones = $objetoInventarioDisco->getnumCanciones();
 			$interprete = $objetoInventarioDisco->getInterprete();
-			$stm = $con -> prepare('INSERT INTO '.self::TABLA.' (numCanciones,interprete) 
-			values (:numCanciones,:interprete )');
+			$stm = $con -> prepare('INSERT INTO '.self::TABLA.' (idInventario, numCanciones,interprete) 
+			values (:idInventario, :numCanciones,:interprete )');
+			$stm->bindParam( ":idInventario", $idInventario );
 			$stm->bindParam(':numCanciones', $numCanciones);
 			$stm->bindParam(':interprete', $interprete);
 			$stm->execute();
