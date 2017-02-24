@@ -20,6 +20,7 @@
 
 	<div id="addInventarioPopup" >
 		<form action="agregaInventarioDisco.php" method="POST">
+			<p>*ID inventario:</p><input type="text" name="idInventario"/>
 			<p>*Numero de canciones:</p><input type="text" name="numCanciones"/>
 			<p>*Interprete:</p><input type="text" name="interprete"/>
 			<input type="submit" value="Agregar disco"/>
